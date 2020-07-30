@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "API",
+    "criteria": [
+      "one-way",
+      "two-way",
+      "selfDevelopment"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Webhooks",
+    "criteria": [
+      "one-way",
+      "selfDevelopment"
+    ] 
+  },
+  {
+    "id": 3,
+    "name": "HTTP POST",
+    "criteria": [
+      "one-way",
+      "selfDevelopment",
+      "authentication"
+    ] 
+  },
+  {
+    "id": 4,
+    "name": "Integration Hub",
+    "criteria": [
+      "one-way",
+      "two-way",
+      "cventDevelopment"
+    ] 
+  },
+  {
+    "id": 5,
+    "name": "Custom Identity Process (CID)",
+    "criteria": [
+      "authentication"
+    ] 
+  }
+]

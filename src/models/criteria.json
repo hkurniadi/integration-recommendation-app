@@ -1,0 +1,32 @@
+[
+  {
+  "id": 1,
+  "isChecked": false,
+  "name": "One-way",
+  "value": "one-way"
+  },
+  {
+    "id": 2,
+    "isChecked": false,
+    "name": "Two-way",
+    "value": "two-way"
+  },
+  {
+    "id": 3,
+    "isChecked": false,
+    "name": "Client will develop the integration",
+    "value": "selfDevelopment"
+  },
+  {
+    "id": 4,
+    "isChecked": false,
+    "name": "Cvent will develop the integration",
+    "value": "cventDevelopment"
+  },
+  {
+    "id": 5,
+    "isChecked": false,
+    "name": "Authentication related",
+    "value": "authentication"
+  }
+]

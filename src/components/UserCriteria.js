@@ -77,8 +77,6 @@ class UserCriteria extends Component {
       </div>
     );
   }
-
-  com
 };
 
 

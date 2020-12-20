@@ -1,9 +1,9 @@
 [
   {
-  "id": 1,
-  "isChecked": false,
-  "name": "One-way",
-  "value": "one-way"
+    "id": 1,
+    "isChecked": false,
+    "name": "One-way",
+    "value": "one-way"
   },
   {
     "id": 2,

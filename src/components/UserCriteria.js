@@ -85,23 +85,32 @@ export default UserCriteria; */
 
 /* Using Functional Component AND Hooks */
 function UserCriteria(props) {
-  console.log("UserCriteria Component is rendered top");
-  
   const [userRequirements, setUserRequirements] = useState(allCriteria);
   const [selectedRequirements, setSelectedRequirements] = useState([]);
 
-  console.log("UserCriteria Component is rendered bottom");
+  console.log("Initializing UserCriteria Component");
+  console.log("Current userRequirements State Variable", userRequirements);
+  console.log("Current selectedRequirements State Variable", selectedRequirements);
 
   const handleChange = (e) => {
-    // console.log("Event.Target.Value =", e.target.value);
+    // console.log("Event.Target.Value =", e.target);
     let userInput = e.target;
-    let currentUserRequirements = userRequirements; 
-    let currentSelectedRequirements = selectedRequirements;
+    
+    let currentUserRequirements = [];
+    userRequirements.forEach(requirement => {
+      currentUserRequirements.push(requirement);
+    }); 
+
+    let currentSelectedRequirements = [];
+    selectedRequirements.forEach(requirement => {
+      currentSelectedRequirements.push(requirement);
+    });
 
     currentUserRequirements.forEach(requirement => {
       if (requirement.value === userInput.value) {
         // Update the isChecked property of each requirement, so the the checkbox will show as checked
         requirement.isChecked = !requirement.isChecked;
+        // Add or Remove the selection in the selectedRequirements State Variable
         if (requirement.isChecked === true && currentSelectedRequirements.includes(requirement.value) === false) {
           currentSelectedRequirements.push(requirement.value);
         } else if (requirement.isChecked === false && currentSelectedRequirements.includes(requirement.value) === true) {
@@ -110,31 +119,27 @@ function UserCriteria(props) {
         };
       };
     });
-    // console.log("This is currentUserRequirements", currentUserRequirements);
 
     setUserRequirements(currentUserRequirements);
-    // console.log("New userRequirments State Variable", userRequirements);
+    // console.log("After ticking checkbox, userRequirements State Variable is now", userRequirements);
     setSelectedRequirements(currentSelectedRequirements);
-    // console.log("New selectedRequirements State Variable", selectedRequirements);
+    // console.log("After ticking checkbox, selectedRequirements State Variable is now", selectedRequirements);
   };
 
   const clearAll = (e) => {
     e.preventDefault();
-    let currentUserRequirements = userRequirements;
-    let currentSelectedRequirements = selectedRequirements;
 
-    currentUserRequirements.forEach(requirement => {
-      // Clear off all check marks
-      requirement.isChecked = false;
-      // Clear off the suggested values
-      if (currentSelectedRequirements.includes(requirement.value) === true) {
-        let positionOfFoundValue = currentSelectedRequirements.indexOf(requirement.value);
-        currentSelectedRequirements.splice(positionOfFoundValue, 1);
-      };
+    setUserRequirements((prevUserRequirements) => {
+      let clearedUserRequirements = [];
+      prevUserRequirements.forEach(requirement => {
+        requirement.isChecked = false;
+        clearedUserRequirements.push(requirement);
+      });
+      return clearedUserRequirements;
     });
-    
-    setUserRequirements(currentUserRequirements);
-    console.log("After clear", userRequirements)
+    console.log("After clear", userRequirements);
+
+    setSelectedRequirements([]);
   };
 
   return (
@@ -144,12 +149,11 @@ function UserCriteria(props) {
         {
           userRequirements.map((x) =>
             <div key={x.id}>
-              <input key={x.id} type="checkbox" defaultChecked={x.isChecked} value={x.value} onChange={handleChange} />
+              <input key={x.id} type="checkbox" checked={x.isChecked} value={x.value} onChange={handleChange} />
               {x.name}
             </div>
           )
         }
-        {/* TODO: clearAll cannot clear the check marks yet, might be because the component is not re-rendered so the list HTML elements are not updated */}
         <input type="submit" value="Clear" onClick={clearAll}/>
         <h1>::::</h1>
         <RecommendedSolutions userInput={selectedRequirements} />

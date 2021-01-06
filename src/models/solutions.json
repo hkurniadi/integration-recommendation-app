@@ -40,5 +40,12 @@
     "criteria": [
       "authentication"
     ] 
+  },
+  {
+    "id": 6,
+    "name": "Single Sign-On (SSO)",
+    "criteria": [
+      "authentication"
+    ] 
   }
 ]

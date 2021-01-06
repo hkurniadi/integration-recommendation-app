@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState } from 'react';
 import RecommendedSolutions from './RecommendedSolutions';
 import allCriteria from '../models/criteria.json'
 
@@ -88,9 +88,9 @@ function UserCriteria(props) {
   const [userRequirements, setUserRequirements] = useState(allCriteria);
   const [selectedRequirements, setSelectedRequirements] = useState([]);
 
-  console.log("Initializing UserCriteria Component");
-  console.log("Current userRequirements State Variable", userRequirements);
-  console.log("Current selectedRequirements State Variable", selectedRequirements);
+  // console.log("Initializing UserCriteria Component");
+  // console.log("Current userRequirements State Variable", userRequirements);
+  // console.log("Current selectedRequirements State Variable", selectedRequirements);
 
   const handleChange = (e) => {
     // console.log("Event.Target.Value =", e.target);

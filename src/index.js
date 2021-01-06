@@ -16,7 +16,7 @@ ReactDOM.render(
 // Redux
 const initialSelectedCriteria = [];
 
-console.log("Initial State", initialSelectedCriteria);
+// console.log("Initial State", initialSelectedCriteria);
 
 const additionalCriteria = [
   {
@@ -34,7 +34,7 @@ const action = {
 
 const nextSelectedCriteria = selectedCriteria(initialSelectedCriteria, action);
 
-console.log("Next State", nextSelectedCriteria);
+// console.log("Next State", nextSelectedCriteria);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

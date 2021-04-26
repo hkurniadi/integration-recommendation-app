@@ -1,5 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import availableSolutions from '../models/solutions.json';
+import Badge from 'react-bootstrap/Badge';
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
 
 /* Using Class Component */
 /* class RecommendedSolutions extends Component {
@@ -131,14 +134,19 @@ const RecommendedSolutions = (props) => {
 
   return (
     <div>
-      <h1>::RecommendedSolutions Component::</h1>
-      <p>Here are the recommended solutions</p>
-      <ul>
+      <h1><Badge variant="primary">3. Here are the recommended solutions</Badge></h1>
+      <CardDeck>
         {
-          solutionRecommendation.map(x => <li key={x.id}>{x.name}</li>)
+          solutionRecommendation.map(x => 
+            <Card key={x.id}>
+              <Card.Body>
+                <Card.Title>{x.name}</Card.Title>
+                <Card.Text>Lorem ipsum</Card.Text>
+              </Card.Body>
+            </Card>
+          )
         }
-      </ul>
-      <h1>::::</h1>
+      </CardDeck>
     </div>
   );
 };

@@ -41,7 +41,7 @@ function SolutionsList(props) {
 
   return (
     <div>
-      <h1><Badge variant="secondary">Available Integration Options</Badge></h1>
+      <h1><Badge variant="primary">1. Review the Available Integration Options</Badge></h1>
       <ListGroup as="ul">
         {
           allSolutions.map((x) =>

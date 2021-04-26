@@ -15,7 +15,7 @@ function App() {
       <Container>
         <Jumbotron>
           <h1>Sales Engineering Recommendation Tool</h1>
-          <p>Welcome! To use this tool, enter your integration requirements by selecting the available input checkboxes below</p>
+          <p>Welcome! To use this tool, follow the steps below</p>
         </Jumbotron>
         <SolutionsList></SolutionsList>
         <UserCriteria></UserCriteria>  

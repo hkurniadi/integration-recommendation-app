@@ -2,6 +2,9 @@ import React, { Component, useState } from 'react';
 import RecommendedSolutions from './RecommendedSolutions';
 import allCriteria from '../models/criteria.json';
 import Button from 'react-bootstrap/Button';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import Badge from 'react-bootstrap/Badge';
 
 /* Using Class Component */
 /* class UserCriteria extends Component {
@@ -145,18 +148,16 @@ function UserCriteria(props) {
 
   return (
     <div>
-        <h1>::UserCriteria Component::</h1>
-        <p>Select your user requirements</p>
-        {
-          userRequirements.map((x) =>
-            <div key={x.id}>
-              <input key={x.id} type="checkbox" checked={x.isChecked} value={x.value} onChange={handleChange} />
-              {x.name}
-            </div>
-          )
-        }
+        <h1><Badge variant="primary">2. Select your Integration Requirements</Badge></h1>
+        <ToggleButtonGroup type="checkbox" vertical="true">
+          {
+            userRequirements.map((x) =>
+              <ToggleButton key={x.id} variant="light" type="checkbox" checked={x.isChecked} value={x.value} onChange={handleChange}>{x.name}</ToggleButton>
+              
+            )
+          }
         <Button variant="dark" type="submit" onClick={clearAll}>Clear</Button>
-        <h1>::::</h1>
+        </ToggleButtonGroup>
         <RecommendedSolutions userInput={selectedRequirements} />
       </div>
   )

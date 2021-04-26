@@ -96,9 +96,11 @@ function UserCriteria(props) {
   // console.log("Current userRequirements State Variable", userRequirements);
   // console.log("Current selectedRequirements State Variable", selectedRequirements);
 
+  // TODO: update the matching logic to use JS Map
   const handleChange = (e) => {
     // console.log("Event.Target.Value =", e.target);
     let userInput = e.target;
+    // console.log("Current target", e.Target)
     
     let currentUserRequirements = [];
     userRequirements.forEach(requirement => {
@@ -149,15 +151,18 @@ function UserCriteria(props) {
   return (
     <div>
         <h1><Badge variant="primary">2. Select your Integration Requirements</Badge></h1>
-        <ToggleButtonGroup type="checkbox" vertical="true">
+        {/* <ToggleButtonGroup type="checkbox" vertical="true"> */}
+          <ul style={{listStyleType: "none"}}>
           {
             userRequirements.map((x) =>
-              <ToggleButton key={x.id} variant="light" type="checkbox" checked={x.isChecked} value={x.value} onChange={handleChange}>{x.name}</ToggleButton>
-              
+              <li key={x.id}>
+                <ToggleButton variant="light" type="checkbox" checked={x.isChecked} value={x.value} onChange={handleChange}>{x.name}</ToggleButton>
+              </li>
             )
           }
+          </ul>
+        {/* </ToggleButtonGroup> */}
         <Button variant="dark" type="submit" onClick={clearAll}>Clear</Button>
-        </ToggleButtonGroup>
         <RecommendedSolutions userInput={selectedRequirements} />
       </div>
   )

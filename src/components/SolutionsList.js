@@ -1,5 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import availableSolutions from '../models/solutions.json';
+import Badge from 'react-bootstrap/Badge';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { ListGroupItem } from 'react-bootstrap';
 
 // Using Class Component
 /* class SolutionsList extends Component {
@@ -38,18 +41,14 @@ function SolutionsList(props) {
 
   return (
     <div>
-      <h1>::SolutionsList Component::</h1>
-      <p>These are the available Integration Solutions</p>
-      <ul>
+      <h1><Badge variant="secondary">Available Integration Options</Badge></h1>
+      <ListGroup as="ul">
         {
           allSolutions.map((x) =>
-            <li key={x.id}>
-              {x.name}
-            </li>
+            <ListGroup.Item as="li" key={x.id}>{x.name}</ListGroup.Item>
           )
         }
-      </ul>
-      <h1>::::</h1>
+      </ListGroup>
     </div>
   )
 }

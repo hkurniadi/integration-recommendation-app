@@ -12,6 +12,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 function App() {
   return (
     <div className="App">
+      {/* TODO: update the container grid to align all in the center */}
       <Container>
         <Jumbotron>
           <h1>Sales Engineering Recommendation Tool</h1>

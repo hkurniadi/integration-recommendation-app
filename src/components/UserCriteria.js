@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import RecommendedSolutions from './RecommendedSolutions';
-import allCriteria from '../models/criteria.json'
+import allCriteria from '../models/criteria.json';
+import Button from 'react-bootstrap/Button';
 
 /* Using Class Component */
 /* class UserCriteria extends Component {
@@ -154,7 +155,7 @@ function UserCriteria(props) {
             </div>
           )
         }
-        <input type="submit" value="Clear" onClick={clearAll}/>
+        <Button variant="dark" type="submit" onClick={clearAll}>Clear</Button>
         <h1>::::</h1>
         <RecommendedSolutions userInput={selectedRequirements} />
       </div>

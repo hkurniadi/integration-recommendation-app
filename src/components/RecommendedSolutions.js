@@ -5,10 +5,11 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 
 /* Using Class Component */
-/* class RecommendedSolutions extends Component {
-  constructor() {
-    super();
+/*class RecommendedSolutions extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
+      userInput: props.userInput,
       solutionRecommendations: [],
       allSolutions: availableSolutions
     };
@@ -53,13 +54,23 @@ import CardDeck from 'react-bootstrap/CardDeck';
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.userInput.length === 0) {
+  componentDidMount() {
+    if (this.state.userInput.length === 0) {
       this.setState({
         solutionRecommendations: []
       })
     } else {
-      this.recommendSolutions(nextProps.userInput);
+      this.recommendSolutions(this.state.userInput);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.userInput !== this.props.userInput) {
+      this.setState({
+        userInput: this.props.userInput
+      }, () => {
+        this.recommendSolutions(this.state.userInput)
+      })
     }
   }
 
@@ -78,7 +89,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
     )
   }
 
-}; */
+};*/
 
 /* Using Functional Component and Hooks */
 const RecommendedSolutions = (props) => {
